@@ -5,7 +5,7 @@
  */
 package com.company.main;
 
-import com.company.dao.inter.EmploymentHistoryDaoInter;
+import com.company.dao.inter.UserDaoInter;
 
 /**
  *
@@ -14,9 +14,8 @@ import com.company.dao.inter.EmploymentHistoryDaoInter;
 public class Main {//Java Database Connectivity = JDBC API Specification
 
     public static void main(String[] args) throws Exception {
-        EmploymentHistoryDaoInter dao = Context.instanceEmploymentHistoryDao();
-            
-        System.out.println(dao.getAllEmploymentHistoryByUserId(6));
+        UserDaoInter dao = Context.instanceUserDao();
+        
     }
 }
 
