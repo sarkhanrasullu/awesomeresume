@@ -5,17 +5,22 @@
  */
 package com.company.dao.inter;
 
+
 import com.company.entity.Country;
-import com.company.entity.User;
 import java.util.List;
 
 /**
  *
- * @author sarkhanrasullu
+ * @author TURAL
  */
 public interface CountryDaoInter {
-
-    public List<Country> getAll();
- 
-
+     
+    List<Country> getAll();
+     
+    public Country getById(int id);
+     
+    boolean updateCountry(Country u);
+     
+    boolean removeCountry(int id);
+    
 }
