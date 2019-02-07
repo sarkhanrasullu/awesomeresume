@@ -1,9 +1,3 @@
-<%-- 
-    Document   : user
-    Created on : Feb 4, 2019, 10:19:10 PM
-    Author     : sarkhanrasullu
---%>
-
 <%@page import="com.company.main.Context"%>
 <%@page import="com.company.dao.inter.UserDaoInter"%>
 <%@page import="com.company.entity.User"%>
@@ -15,12 +9,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-
         <%
             UserDaoInter userDao = Context.instanceUserDao();
             User u = userDao.getById(6);
         %>
-
         <div>
             <form action="UserController" method="POST">
                 <input type="hidden" name="id" value="<%=u.getId()%>"/>
