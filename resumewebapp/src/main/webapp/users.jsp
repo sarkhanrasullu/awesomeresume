@@ -62,6 +62,7 @@
                         <th>surname</th>
                         <th>nationality</th>
                         <th></th>
+                        <th></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -72,14 +73,23 @@
                         <td><%=u.getName()%></td>
                         <td><%=u.getSurname()%></td>
                         <td><%=u.getNationality().getName()==null?"N/A":u.getNationality().getName()%></td>
-                        <td>
-                            <button class="btn btn-danger" type="submit" value="delete" name="action">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-
-                            <button class="btn btn-secondary" type="submit" value="update" name="action">
-                                <i class="fas fa-pen-square"></i>
-                            </button>
+                        <td style="width:5px">
+                            <form action="userdetail" method="POST">
+                                <input type="hidden" name="id" value="<%=u.getId()%>"/>
+                                <input type="hidden" name="action" value="delete"/>
+                                <button class="btn btn-danger" type="submit" value="delete">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                        <td style="width:5px">
+                            <form action="userdetail" method="GET">
+                                <input type="hidden" name="id" value="<%=u.getId()%>"/>
+                                <input type="hidden" name="action" value="update"/>
+                                <button class="btn btn-secondary" type="submit" value="update">
+                                    <i class="fas fa-pen-square"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                     <%}%>
