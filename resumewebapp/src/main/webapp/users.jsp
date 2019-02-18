@@ -74,9 +74,9 @@
                         <td><%=u.getSurname()%></td>
                         <td><%=u.getNationality().getName()==null?"N/A":u.getNationality().getName()%></td>
                         <td style="width:5px">
-                            <form action="userdetail" method="POST">
+                            <form action="userdetail" method="GET">
                                 <input type="hidden" name="id" value="<%=u.getId()%>"/>
-                                <input type="hidden" name="action" value="delete"/>
+                                <input type="hidden" name="action" value="alma"/>
                                 <button class="btn btn-danger" type="submit" value="delete">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
