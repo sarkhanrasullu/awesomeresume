@@ -17,6 +17,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+
+    <%
+          User user= (User) session.getAttribute("loggedInUser");
+
+    %>
+    <%="Wellcome, "+user.getName()%>
+
         <%
             UserDaoInter userDao = Context.instanceUserDao();
 
