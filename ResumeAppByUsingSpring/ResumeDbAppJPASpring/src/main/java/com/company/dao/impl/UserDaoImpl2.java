@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import com.company.dao.inter.UserDaoInter;
+
 import com.company.entity.User;
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
  * @author sarkhanrasullu Data Access Object
  */
 @Repository("userDao2")
-public class UserDaoImpl2 implements UserDaoInter {
+public class UserDaoImpl2 implements UserRepositoryCustom {
 
     public UserDaoImpl2(){
         System.out.println("UserDaoImpl2");
@@ -85,7 +85,7 @@ public class UserDaoImpl2 implements UserDaoInter {
 
 //        query.setParameter(1, email);
 //        query.setParameter(2, password);
-//        
+//
         List<User> list = query.getResultList();
         if (list.size() == 1) {
             return list.get(0);
@@ -110,8 +110,8 @@ public class UserDaoImpl2 implements UserDaoInter {
 //        return null;
 //    }
 
-    
-    
+
+
     //CriteriaBuilder
 //    @Override
 //    public User findByEmail(String email) {
@@ -120,29 +120,13 @@ public class UserDaoImpl2 implements UserDaoInter {
 //        Root<User> postRoot = q1.from(User.class);
 //        CriteriaQuery<User> q2 = q1
 //                .where(cb.equal(postRoot.get("email"), email));
-//        
+//
 //
 //        Query query = em.createQuery(q2);
 //
 ////        query.setParameter(1, email);
 ////        query.setParameter(2, password);
-////        
-//        List<User> list = query.getResultList();
-//        if (list.size() == 1) {
-//            return list.get(0);
-//        }
-//
-//        return null;
-//
-//    }
-    
-    
-    //NamedQuery
-//    @Override
-//    public User findByEmail(String email) {
-//        Query query= em.createNamedQuery("User.findByEmail", User.class);
-//        query.setParameter("email", email);
-////        
+////
 //        List<User> list = query.getResultList();
 //        if (list.size() == 1) {
 //            return list.get(0);
@@ -152,18 +136,34 @@ public class UserDaoImpl2 implements UserDaoInter {
 //
 //    }
 
-    
+
+    //NamedQuery
+//    @Override
+//    public User findByEmail(String email) {
+//        Query query= em.createNamedQuery("User.findByEmail", User.class);
+//        query.setParameter("email", email);
+////
+//        List<User> list = query.getResultList();
+//        if (list.size() == 1) {
+//            return list.get(0);
+//        }
+//
+//        return null;
+//
+//    }
+
+
     //Native SQL
      @Override
     public User findByEmail(String email) {
         Query query= em.createNativeQuery("select * from user where email = ?", User.class);
         query.setParameter(1, email);
-//        
+//
         List<User> list = query.getResultList();
         if (list.size() == 1) {
             return list.get(0);
         }
-        
+
         return null;
     }
 

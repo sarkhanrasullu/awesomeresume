@@ -1,9 +1,12 @@
 package com.company.dao.impl;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.company.dao.inter.UserDaoInter;
 import com.company.entity.User;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -16,17 +19,16 @@ import java.util.List;
  *
  * @author sarkhanrasullu Data Access Object
  */
-@Repository("userDao1")
-public class UserDaoImpl implements UserDaoInter {
+@Repository
+@Qualifier("userDao1")
+public class UserRepositoryCustomImpl implements UserRepositoryCustom {
 
-    public UserDaoImpl(){
-        System.out.println("UserDaoImpl");
-    }
-
+//
     @PersistenceContext
     EntityManager em;//null  DI - Dipendency Injection
 
     @Override
+    @Cacheable(value="users")
     public List<User> getAll(String name, String surname, Integer nationalityId) {
         String jpql = "select u from User u where 1=1";
 
@@ -85,7 +87,7 @@ public class UserDaoImpl implements UserDaoInter {
 
 //        query.setParameter(1, email);
 //        query.setParameter(2, password);
-//        
+//
         List<User> list = query.getResultList();
         if (list.size() == 1) {
             return list.get(0);
@@ -110,8 +112,8 @@ public class UserDaoImpl implements UserDaoInter {
 //        return null;
 //    }
 
-    
-    
+
+
     //CriteriaBuilder
 //    @Override
 //    public User findByEmail(String email) {
@@ -120,29 +122,13 @@ public class UserDaoImpl implements UserDaoInter {
 //        Root<User> postRoot = q1.from(User.class);
 //        CriteriaQuery<User> q2 = q1
 //                .where(cb.equal(postRoot.get("email"), email));
-//        
+//
 //
 //        Query query = em.createQuery(q2);
 //
 ////        query.setParameter(1, email);
 ////        query.setParameter(2, password);
-////        
-//        List<User> list = query.getResultList();
-//        if (list.size() == 1) {
-//            return list.get(0);
-//        }
-//
-//        return null;
-//
-//    }
-    
-    
-    //NamedQuery
-//    @Override
-//    public User findByEmail(String email) {
-//        Query query= em.createNamedQuery("User.findByEmail", User.class);
-//        query.setParameter("email", email);
-////        
+////
 //        List<User> list = query.getResultList();
 //        if (list.size() == 1) {
 //            return list.get(0);
@@ -152,18 +138,34 @@ public class UserDaoImpl implements UserDaoInter {
 //
 //    }
 
-    
+
+    //NamedQuery
+//    @Override
+//    public User findByEmail(String email) {
+//        Query query= em.createNamedQuery("User.findByEmail", User.class);
+//        query.setParameter("email", email);
+////
+//        List<User> list = query.getResultList();
+//        if (list.size() == 1) {
+//            return list.get(0);
+//        }
+//
+//        return null;
+//
+//    }
+
+
     //Native SQL
      @Override
     public User findByEmail(String email) {
         Query query= em.createNativeQuery("select * from user where email = ?", User.class);
         query.setParameter(1, email);
-//        
+//
         List<User> list = query.getResultList();
         if (list.size() == 1) {
             return list.get(0);
         }
-        
+
         return null;
     }
 
@@ -174,6 +176,7 @@ public class UserDaoImpl implements UserDaoInter {
     }
 
     @Override
+//    @CacheEvict(value = "users",allEntries = true)
     public boolean removeUser(int id) {
         User u = em.find(User.class, id);
         em.remove(u);
@@ -193,6 +196,10 @@ public class UserDaoImpl implements UserDaoInter {
         u.setPassword(crypt.hashToString(4, u.getPassword().toCharArray()));
         em.persist(u);
         return true;
+    }
+
+    public void doSomeCustom(){
+        System.out.println("I am custom");
     }
 
 }
