@@ -9,7 +9,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
-
 import java.util.List;
 
 @SpringBootApplication
@@ -26,17 +25,19 @@ public class ResumeDbAppJpaSpringApplication {
 //	@Qualifier("userDao1")
 //	private UserRepositoryCustom userDao;
 //
+
+	@Autowired
+	private UserServiceInter service;
+
 //	@Bean
 //	public CommandLineRunner run() {
 //		CommandLineRunner clr = new CommandLineRunner(){
 //
 //			@Override
 //			public void run(String... args) throws Exception {
-//				List<User> list= userDao.getAll(null,null,null);
+//				List<User> list= service.getAll(null,null,null);
 //
-//				User u = list.get(0);
-//				u.setName(u.getName().toLowerCase());
-//				userDao.updateUser(u);
+//				System.out.println("list size="+list.size());
 //			}
 //		};
 //
@@ -50,22 +51,22 @@ public class ResumeDbAppJpaSpringApplication {
 	@Autowired
 	private UserRepository repo;
 
-	@Bean
-	public CommandLineRunner run() {
-		CommandLineRunner clr = new CommandLineRunner(){
-
-			@Override
-			public void run(String... args) throws Exception {
-
-				for(int i=0;i<10;i++){
-					repo.getAll(null,null,null);
-				}
-
-				repo.getById(6);//
-			}
-		};
-
-		return clr;
-	}
+//	@Bean
+//	public CommandLineRunner run() {
+//		CommandLineRunner clr = new CommandLineRunner(){
+//
+//			@Override
+//			public void run(String... args) throws Exception {
+//
+//				for(int i=0;i<10;i++){
+//					repo.getAll(null,null,null);
+//				}
+//
+//				repo.getById(6);//
+//			}
+//		};
+//
+//		return clr;
+//	}
 
 }
