@@ -8,11 +8,6 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: com.company:ResumeDbAppJPA:0.1" />
-          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.13" />
-          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
-          <element id="library" level="project" name="Maven: org.eclipse.persistence:eclipselink:2.5.2" />
-          <element id="library" level="project" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" />
-          <element id="library" level="project" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" />
           <element id="library" level="project" name="Maven: at.favre.lib:bcrypt:0.4.1" />
           <element id="library" level="project" name="Maven: at.favre.lib:bytes:0.4.6" />
         </element>

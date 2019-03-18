@@ -24,11 +24,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.5" level="application_server_libraries" />
     <orderEntry type="library" name="Maven: com.company:ResumeDbAppJPA:0.1" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.13" level="project" />
-    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.6.1" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.persistence:eclipselink:2.5.2" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.persistence:javax.persistence:2.1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.eclipse.persistence:commonj.sdo:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: at.favre.lib:bcrypt:0.4.1" level="project" />
     <orderEntry type="library" name="Maven: at.favre.lib:bytes:0.4.6" level="project" />
   </component>
