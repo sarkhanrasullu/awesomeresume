@@ -1,6 +1,5 @@
 package com.company.controller;
 
-import com.company.dto.UserDTO;
 import com.company.entity.User;
 import com.company.service.inter.UserServiceInter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -45,12 +43,8 @@ public class UserController {
         List<User> list = userService.getAll(name, surname, nationalityId);
         ModelAndView mv = new ModelAndView("users");
 
-        List<UserDTO> users = new ArrayList<>();
-        for(int i=0;i<list.size();i++){
-            User u = list.get(i);
-            users.add(new UserDTO(u.getId(), u.getName(), u.getSurname(), u.getNationality().getName()));
-        }
-        mv.addObject("list",users);
+        
+        mv.addObject("list",list);
         return mv;
     }
 
