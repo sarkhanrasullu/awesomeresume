@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="resumewebapp:war">
-    <output-path>$PROJECT_DIR$/resumewebapp/target</output-path>
-    <root id="archive" name="resumewebapp-0.0.1.war">
-      <element id="artifact" artifact-name="resumewebapp:war exploded" />
-    </root>
-  </artifact>
-</component>

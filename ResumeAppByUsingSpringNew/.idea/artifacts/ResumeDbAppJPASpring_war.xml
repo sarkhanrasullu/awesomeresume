@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="ResumeDbAppJPASpring:war">
-    <output-path>$PROJECT_DIR$/ResumeDbAppJPASpring/target</output-path>
-    <root id="archive" name="ResumeDbAppJPASpring-0.0.2.war">
-      <element id="artifact" artifact-name="ResumeDbAppJPASpring:war exploded" />
-    </root>
-  </artifact>
-</component>
