@@ -2,6 +2,7 @@ package com.company.controller;
 
 import com.company.entity.User;
 import com.company.form.UserForm;
+import com.company.service.DummyService;
 import com.company.service.inter.UserServiceInter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,6 +62,31 @@ public class UserController {
         return mv;
     }
 
+
+//    @RequestMapping(method = RequestMethod.GET, value="/alma")//users?name=Sarkhan
+//    public String login(){
+//        return "login";
+//    }
+
+    @RequestMapping(method = {RequestMethod.GET}, value="/login")//users?name=Sarkhan
+    public String loginPost(){
+        return "login";
+    }
+
+    @RequestMapping(method = {RequestMethod.GET}, value="/logout")//users?name=Sarkhan
+    public String logoutPage(){
+        return "logout";
+    }
+
+    @Autowired
+    DummyService dummyService;
+
+    @RequestMapping(method = {RequestMethod.GET}, value="/foo")//users?name=Sarkhan
+    public String foo(){
+        System.out.println("foo in Controller");
+        dummyService.foo();
+        return "users";
+    }
 
     @ModelAttribute("user")
     public UserForm getEmptyUserForm(){
