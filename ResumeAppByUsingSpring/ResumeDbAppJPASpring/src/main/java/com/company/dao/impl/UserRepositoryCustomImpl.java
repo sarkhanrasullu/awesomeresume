@@ -5,6 +5,7 @@ import com.company.entity.User;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -28,7 +29,7 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
     EntityManager em;//null  DI - Dipendency Injection
 
     @Override
-    @Cacheable(value="users")
+//    @Cacheable(value="users")
     public List<User> getAll(String name, String surname, Integer nationalityId) {
         String jpql = "select u from User u where 1=1";
 
@@ -189,11 +190,11 @@ public class UserRepositoryCustomImpl implements UserRepositoryCustom {
         return u;
     }
 
-    private static BCrypt.Hasher crypt = BCrypt.withDefaults();
+    private static  BCryptPasswordEncoder crypt = new BCryptPasswordEncoder();
 
     @Override
     public boolean addUser(User u) {
-        u.setPassword(crypt.hashToString(4, u.getPassword().toCharArray()));
+        u.setPassword(crypt.encode(u.getPassword()));
         em.persist(u);
         return true;
     }
