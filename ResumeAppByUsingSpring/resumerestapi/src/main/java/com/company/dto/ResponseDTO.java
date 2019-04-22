@@ -63,4 +63,15 @@ public class ResponseDTO {
     public void setObj(Object obj) {
         this.obj = obj;
     }
+
+
+    @Override
+    public String toString() {
+        return "ResponseDTO{" +
+                "errorCode=" + errorCode +
+                ", errorMessage='" + errorMessage + '\'' +
+                ", successMessage='" + successMessage + '\'' +
+                ", obj=" + obj +
+                '}';
+    }
 }

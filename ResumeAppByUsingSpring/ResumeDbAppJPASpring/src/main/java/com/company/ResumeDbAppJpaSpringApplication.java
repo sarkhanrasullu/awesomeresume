@@ -21,15 +21,15 @@ public class ResumeDbAppJpaSpringApplication {
 		SpringApplication.run(ResumeDbAppJpaSpringApplication.class, args);
 	}
 
-	//	DI - Dipendency Injection
-	//  IoC - Inversion Of Control, RMI
-	@Autowired
-	@Qualifier("userDao1")
-	private UserRepositoryCustom userDao;
+//	//	DI - Dipendency Injection
+//	//  IoC - Inversion Of Control, RMI
+//	@Autowired
+//	@Qualifier("userDao1")
+//	private UserRepositoryCustom userDao;
+////
 //
-
-	@Autowired
-	private UserServiceInter service;
+//	@Autowired
+//	private UserServiceInter service;
 
 //	@Bean
 //	public CommandLineRunner run() {
@@ -47,11 +47,11 @@ public class ResumeDbAppJpaSpringApplication {
 //	}
 
 
-	@Autowired
-	private UserServiceInter userService;
-
-	@Autowired
-	private UserRepository repo;
+//	@Autowired
+//	private UserServiceInter userService;
+//
+//	@Autowired
+//	private UserRepository repo;
 
 //	@Bean
 //	public CommandLineRunner run() {

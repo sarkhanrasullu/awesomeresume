@@ -28,6 +28,7 @@ public class UserDaoImpl2 implements UserRepositoryCustom {
 
     @Override
     public List<User> getAll(String name, String surname, Integer nationalityId) {
+        System.out.println("user dao get all called");
         String jpql = "select u from User u where 1=1";
 
         if (name != null && !name.trim().isEmpty()) {
@@ -92,7 +93,6 @@ public class UserDaoImpl2 implements UserRepositoryCustom {
         }
 
         return null;
-
     }
 
     //jpql

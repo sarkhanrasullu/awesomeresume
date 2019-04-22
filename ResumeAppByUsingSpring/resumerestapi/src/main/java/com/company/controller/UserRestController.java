@@ -27,6 +27,9 @@ public class UserRestController {
             @RequestParam(name="age",required = false) Integer age
 
     ){
+           System.out.println("alma2");
+           
+           System.out.println("heyva");
         List<User> users = userService.getAll(name,surname,age);
 
         List<UserDTO> userDTOS = new ArrayList<>();

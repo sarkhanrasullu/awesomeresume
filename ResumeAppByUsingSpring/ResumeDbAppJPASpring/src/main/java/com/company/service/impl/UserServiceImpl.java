@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserServiceInter {
 
     @Autowired
     @Qualifier("userDao1")
-    private UserRepositoryCustom userDao;
+    private UserRepositoryCustom userDao;//mock
 
     @Override
     public List<User> getAll(String name, String surname, Integer nationalityId) {
