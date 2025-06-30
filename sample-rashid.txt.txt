@@ -1,0 +1,7 @@
+Git CMD komutu 
+cd C:\Workspace\demo\JavaApplication4
+gir clone https://github.com/raufshamilovich/demo.git
+git add .
+ git commit -m " "
+
+C:\Workspace\demo\JavaApplication4>git push -u origin master
